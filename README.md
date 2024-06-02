@@ -8,4 +8,4 @@
 4. Make sure to install dependencies of frontend. Move to front end folder use ```npm install --legacy-peer-deps```
 5. open a new terminal & move to frontend folder -> Screens -> HomeScreen.js
 6. Paste the Address of backend server in line 20.
-7. use npm start.
+7. use ```npm start``` to run the front end.
