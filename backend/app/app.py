@@ -12,6 +12,7 @@ sp.load("model/model.pkl")
 origins = [
     "http://localhost:3000",
     "localhost:3000",
+    "*"
 ]
 
 

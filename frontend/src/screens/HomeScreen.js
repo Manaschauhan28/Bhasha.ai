@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Button, Image, Form, Figure, Card } from 'react-bootstrap'
 import axios from 'axios'
-
+import Typewriter from 'typewriter-effect'
 
 function HomeScreen() {
     const [inputText, setInputText] = useState('');
@@ -17,7 +17,7 @@ function HomeScreen() {
     const handleCheckButtonClick = async () => {
         try {
             // Make an HTTP POST request to your backend API endpoint with the input text
-            const response = await axios.post('http://127.0.0.1:8002/check', {
+            const response = await axios.post('http://13.201.78.230:8000/check', {
                 text: inputText + " "
             });
             // Handle the response from the backend
@@ -49,50 +49,55 @@ function HomeScreen() {
           };
         
   return (
-    <Container variant='secondary'>
-        <Row>
-            <Col className='text-center fs-1 mt-3 p-2'>Welcome to Pari भाषा.ai</Col>
-        </Row>
-        <Row>
-            <Col className='text-center fs-4 mt-3 p-1'>"अपनी हिंदी को सही और बेहतर बनाएं, Pari भाषा.ai के साथ।" </Col>
-        </Row>
-       
-
-
-        <Card className="text-center m-5 p-1">
-        <Card.Header></Card.Header>
-        <Card.Body>
-            <Card.Title>Input Here :</Card.Title>
-            <Form.Group className='mb-3'>
-                    <Form.Label> </Form.Label>
-                    <Form.Control as="textarea" 
-                    placeholder='यहाँ टाइप करे ...' 
-                    rows={9} 
-                    value={inputText}
-                    
-                    onChange={handleInputChange}
-                    />
-
-                    </Form.Group>
-            
-            <Button variant="success" onClick={handleCheckButtonClick}>Check & Correct Me</Button>
-            {showResponse && (
-            <>
-              <Card.Text className='m-3'>
-                
-                <div dangerouslySetInnerHTML={{ __html: highlightedText }} />
-
-
-              </Card.Text>
-              <Card.Text className='m-3'>
-                <strong>Correct Text :</strong> {responseText} 
-              </Card.Text>
-            </>
-          )}
-        </Card.Body>
-        <Card.Footer className="text-muted"></Card.Footer>
-        </Card>
+    <Container className='background' variant='secondary'>
+      <Row>
+          <Col className='text-center fs-1 mt-3 p-2'><Typewriter 
+          onInit={(typewriter)=>typewriter.typeString("Welcome to Pari भाषा.ai")
+          .pauseFor(1000)
+          .deleteAll()
+          .typeString("Pari भाषा.ai के साथ हिंदी वर्तनी सुधारे !")
+          .start()} /></Col>
+      </Row>
+      <Row>
+          <Col className='text-center fs-4 mt-3 p-1'>"अपनी हिंदी को सही और बेहतर बनाएं, Pari भाषा.ai के साथ।" </Col>
+      </Row>
+     
+  
+      <Card className="text-center m-5 p-1">
+      <Card.Header></Card.Header>
+      <Card.Body>
+          <Card.Title>Input Here :</Card.Title>
+          <Form.Group className='mb-3 rounded'>
+                  <Form.Label> </Form.Label>
+                  <Form.Control as="textarea" 
+                  placeholder='यहाँ टाइप करे ...' 
+                  rows={9} 
+                  value={inputText}
+                  
+                  onChange={handleInputChange}
+                  />
+  
+                  </Form.Group>
+          
+          <Button className='button-54' onClick={handleCheckButtonClick}>Check & Correct Me</Button>
+          {showResponse && (
+          <>
+            <Card.Text className='m-3'>
+              
+              <div dangerouslySetInnerHTML={{ __html: highlightedText }} />
+  
+  
+            </Card.Text>
+            <Card.Text className='m-3'>
+              <strong>Correct Text :</strong> {responseText} 
+            </Card.Text>
+          </>
+        )}
+      </Card.Body >
+      <Card.Footer className="text-muted"></Card.Footer>
+      </Card>
     </Container>
+  
   )
 }
 

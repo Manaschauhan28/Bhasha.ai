@@ -3,6 +3,7 @@ import { Navbar,Nav,Container, Row, Col } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import Button from 'react-bootstrap/Button'
 import '../App.css';
+
 // import { logoImage } from 'logo.png'
 import {
     MDBNavbar,
@@ -21,13 +22,14 @@ function Header() {
     <header>
         <Navbar bg='myColor' expand="lg" collapseOnSelect>
             <Container>
+            
                 <LinkContainer to="/">
-                    <Navbar.Brand className='fs-2'>
-                      <img src={'logo.png'} height={100} width={100} alt='Pari भाषा.ai' className='rounded'></img>
+                    <Navbar.Brand className='fs-1 center-container'>
+                    <img src={'logo.png'} height={150} width={150} alt='Pari भाषा.ai' className='img-rounded' style={{display: "block",margin: "0 auto"}} ></img>  
                     </Navbar.Brand>
                 </LinkContainer>
 
-                <Nav className="justify-content-end fs-5" activeKey="/home">
+                {/* <Nav className="justify-content-end fs-5" activeKey="/home">
                     <Nav.Item>
                         <Nav.Link href="/home">Home</Nav.Link>
                     </Nav.Item>
@@ -46,7 +48,7 @@ function Header() {
                         <Button variant='primary'>Get Started</Button>
                     </Nav.Item>
 
-                </Nav>
+                </Nav> */}
             </Container>
         </Navbar>
     </header>
